@@ -6,6 +6,7 @@ const URL = 'https://swapi-trybe.herokuapp.com/api/planets/';
 
 function TableProvider({ children }) {
   const [data, setData] = useState([]);
+  const [dataCopy, setDataCopy] = useState([]);
 
   useEffect(() => {
     const fetchPlanets = async () => {
@@ -15,6 +16,7 @@ function TableProvider({ children }) {
         // console.log(dataPlanets);
         // console.log(dataPlanets.results);
         setData(dataPlanets.results);
+        setDataCopy(dataPlanets.results);
       } catch (error) {
         console.log(error);
       }
@@ -24,6 +26,9 @@ function TableProvider({ children }) {
 
   const contextValue = {
     data,
+
+    dataCopy,
+    setDataCopy,
   };
 
   return (

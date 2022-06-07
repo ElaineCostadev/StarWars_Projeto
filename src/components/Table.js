@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import TableContext from '../context/TableContext';
 
 function Table() {
-  const { data } = useContext(TableContext);
+  const { dataCopy } = useContext(TableContext);
   return (
     <table>
       <thead>
@@ -24,7 +24,7 @@ function Table() {
       </thead>
       <tbody>
         {
-          data.map((eachPlanet) => (
+          dataCopy.map((eachPlanet) => (
             <tr key={ eachPlanet.name }>
               <td>{eachPlanet.name}</td>
               <td>{eachPlanet.rotation_period}</td>
