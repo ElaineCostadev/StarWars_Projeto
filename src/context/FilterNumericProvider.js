@@ -2,16 +2,15 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import FilterNumericContext from './FilterNumericContext';
 
+const arryOptions = ['population', 'orbital_period',
+  'diameter', 'rotation_period', 'surface_water'];
+
 function FilterNumericProvider({ children }) {
   const [column, setColumn] = useState('population');
   const [comparison, setComparison] = useState('maior que');
   const [value, setValue] = useState(0);
   const [filterByNumericValues, setFilterByNumericValues] = useState([]);
-  const [booleanPopulation, setBooleanPopulation] = useState(true);
-  const [booleanOrbital, setBooleanOrbital] = useState(true);
-  const [booleanDiameter, setBooleanDiameter] = useState(true);
-  const [booleanRotation, setBooleanRotation] = useState(true);
-  const [booleanSurface, setBooleanSurface] = useState(true);
+  const [options, setOptions] = useState(arryOptions);
 
   const contextFilterNumericValue = { filterByNumericValues,
     setFilterByNumericValues,
@@ -21,16 +20,8 @@ function FilterNumericProvider({ children }) {
     setComparison,
     value,
     setValue,
-    booleanPopulation,
-    setBooleanPopulation,
-    booleanOrbital,
-    setBooleanOrbital,
-    booleanDiameter,
-    setBooleanDiameter,
-    booleanRotation,
-    setBooleanRotation,
-    booleanSurface,
-    setBooleanSurface,
+    options,
+    setOptions,
   };
   return (
     <FilterNumericContext.Provider value={ contextFilterNumericValue }>
