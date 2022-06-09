@@ -24,15 +24,14 @@ function TableProvider({ children }) {
     fetchPlanets();
   }, []);
 
-  const contextValue = {
+  const contextTableValue = {
     data,
-
     dataCopy,
     setDataCopy,
   };
 
   return (
-    <TableContext.Provider value={ contextValue }>
+    <TableContext.Provider value={ contextTableValue }>
       { children }
     </TableContext.Provider>
   );
