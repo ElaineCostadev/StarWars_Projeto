@@ -11,6 +11,9 @@ function FilterNumericProvider({ children }) {
   const [value, setValue] = useState(0);
   const [filterByNumericValues, setFilterByNumericValues] = useState([]);
   const [options, setOptions] = useState(arryOptions);
+  const [columnSort, setColumnSort] = useState('population');
+  const [sort, setSort] = useState('ASC');
+  const [order, setOrder] = useState({});
 
   const contextFilterNumericValue = { filterByNumericValues,
     setFilterByNumericValues,
@@ -22,6 +25,12 @@ function FilterNumericProvider({ children }) {
     setValue,
     options,
     setOptions,
+    columnSort,
+    setColumnSort,
+    sort,
+    setSort,
+    order,
+    setOrder,
   };
   return (
     <FilterNumericContext.Provider value={ contextFilterNumericValue }>

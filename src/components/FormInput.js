@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import FilterNumericContext from '../context/FilterNumericContext';
+import TableContext from '../context/TableContext';
 
 // mentoria com o Douglas para fazer esse array de options
 const arryOptions = ['population', 'orbital_period',
@@ -10,7 +11,11 @@ function FormInput() {
     comparison, setComparison,
     value, setValue,
     filterByNumericValues, setFilterByNumericValues,
-    options, setOptions } = useContext(FilterNumericContext);
+    options, setOptions,
+    columnSort, setColumnSort,
+    sort, setSort } = useContext(FilterNumericContext);
+
+  const { dataCopy, setDataCopy } = useContext(TableContext);
 
   const handleInputs = () => {
     // console.log(options);
@@ -26,20 +31,6 @@ function FormInput() {
     setOptions(filterOptions);
     // seto tbm as columns com a primeira opção que tem disponivel no array filtrado
     setColumn(filterOptions[0]);
-  /*     switch (column) {
-    case POPULATION:
-      return setBooleanPopulation(false);
-    case ORBITAL_PERIOD:
-      return setBooleanOrbital(false);
-    case DIAMETER:
-      return setBooleanDiameter(false);
-    case ROTATION_PERIOD:
-      return setBooleanRotation(false);
-    case SURFACE_WATER:
-      return setBooleanSurface(false);
-    default:
-      return true;
-    } */
   };
 
   const deleteColumns = (columns) => {
@@ -51,20 +42,6 @@ function FormInput() {
     setFilterByNumericValues(filterColumnOptions);
     // seto o meu array de options com tudo o que estava + o que foi recebido via parametro
     setOptions([...options, columns]);
-  /*     switch (column) {
-    case POPULATION:
-      return setBooleanPopulation(true);
-    case ORBITAL_PERIOD:
-      return setBooleanOrbital(true);
-    case DIAMETER:
-      return setBooleanDiameter(true);
-    case ROTATION_PERIOD:
-      return setBooleanRotation(true);
-    case SURFACE_WATER:
-      return setBooleanSurface(true);
-    default:
-      return true;
-    } */
   };
 
   const deleteAllFilters = () => {
@@ -72,11 +49,31 @@ function FormInput() {
     setFilterByNumericValues([]);
     setOptions(arryOptions);
     setColumn(arryOptions[0]);
-  /* setBooleanPopulation(true);
-    setBooleanOrbital(true);
-    setBooleanDiameter(true);
-    setBooleanRotation(true);
-    setBooleanSurface(true); */
+  };
+
+  const handleOrder = () => {
+    // mentoria Summer - Carlos salvador de todos nós!
+    // fazendo um filtro com toda a coluna sem o unknown
+    const withoutUnknown = dataCopy
+      .filter((eachPlanets) => eachPlanets[columnSort] !== 'unknown');
+      // fazendo um filtro apenas com unknown
+    const onlyUnknown = dataCopy
+      .filter((eachPlanets) => eachPlanets[columnSort] === 'unknown');
+
+    // ordenando com o sort
+    withoutUnknown.sort((a, b) => {
+      if (sort === 'DESC') {
+        return Number(b[columnSort]) - Number(a[columnSort]);
+      }
+      if (sort === 'ASC') {
+        return Number(a[columnSort]) - Number(b[columnSort]);
+      }
+      return true;
+    });
+    // fazendo o novo array com as informações separadas, para juntar corretamente
+    const newDataCopy = [...withoutUnknown, ...onlyUnknown];
+    // newDataCopy.forEach((eachPlanet) => console.log(eachPlanet[columnSort]));
+    setDataCopy(newDataCopy);
   };
 
   return (
@@ -166,33 +163,58 @@ function FormInput() {
       >
         Remover filtros
       </button>
+
+      <label htmlFor="column-sort">
+        Ordenar
+        <select
+          data-testid="column-sort"
+          id="column-sort"
+          name="column-sort"
+          value={ columnSort }
+          onChange={ ({ target }) => setColumnSort(target.value) }
+        >
+          { options.map((eachOption) => (
+            <option
+              key={ eachOption }
+            >
+              {eachOption}
+            </option>
+          ))}
+        </select>
+      </label>
+
+      <label htmlFor="input-asc">
+        Ascendente
+        <input
+          name="input-radio"
+          type="radio"
+          id="input-asc"
+          data-testid="column-sort-input-asc"
+          value="ASC"
+          onChange={ ({ target }) => setSort(target.value) }
+        />
+      </label>
+      <label htmlFor="input-desc">
+        Descendente
+        <input
+          name="input-radio"
+          type="radio"
+          id="input-desc"
+          data-testid="column-sort-input-desc"
+          value="DESC"
+          onChange={ ({ target }) => setSort(target.value) }
+        />
+      </label>
+      <button
+        type="button"
+        data-testid="column-sort-button"
+        onClick={ handleOrder }
+      >
+        Ordenar
+      </button>
+
     </nav>
   );
 }
 
 export default FormInput;
-
-/*   useEffect(() => {
-    const resultNumericValues = filterByNumericValues
-      .reduce((totalInfo, filtered) => totalInfo
-        .filter((eachFilter) => {
-          switch (filtered.comparison) {
-          case MAIOR_QUE:
-            return eachFilter[filtered.column] > filtered.value;
-          case MENOR_QUE:
-            return eachFilter[filtered.column] < filtered.value;
-          case IGUAL_A:
-            return eachFilter[filtered.column] === filtered.value;
-          default:
-            return true;
-          }
-        }), dataCopy);
-
-    setDataCopy(resultNumericValues);
-  }, [setDataCopy, filterByNumericValues]); */
-
-/*             { booleanPopulation && <option>population</option> }
-            { booleanOrbital && <option>orbital_period</option> }
-            { booleanDiameter && <option>diameter</option> }
-            { booleanRotation && <option>rotation_period</option> }
-            { booleanSurface && <option>surface_water</option> } */

@@ -26,7 +26,7 @@ function Table() {
         {
           dataCopy.map((eachPlanet) => (
             <tr key={ eachPlanet.name }>
-              <td>{eachPlanet.name}</td>
+              <td data-testid="planet-name">{eachPlanet.name}</td>
               <td>{eachPlanet.rotation_period}</td>
               <td>{eachPlanet.orbital_period}</td>
               <td>{eachPlanet.diameter}</td>

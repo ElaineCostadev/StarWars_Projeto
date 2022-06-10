@@ -13,10 +13,21 @@ function TableProvider({ children }) {
       try {
         const response = await fetch(URL);
         const dataPlanets = await response.json();
+        const one = 1;
         // console.log(dataPlanets);
         // console.log(dataPlanets.results);
-        setData(dataPlanets.results);
-        setDataCopy(dataPlanets.results);
+        /*        dataPlanets.results
+          .sort((a, b) => ((a.name < b.name) ? -1 : (a.name > b.name) ? 1 : 0)); */
+        const orderDataPlanets = dataPlanets.results.sort((a, b) => {
+          if (a.name < b.name) {
+            return -one;
+          } if (a.name > b.name) {
+            return one;
+          }
+          return 0;
+        });
+        setData(orderDataPlanets);
+        setDataCopy(orderDataPlanets);
       } catch (error) {
         console.log(error);
       }

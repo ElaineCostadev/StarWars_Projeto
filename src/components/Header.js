@@ -9,19 +9,7 @@ const IGUAL_A = 'igual a';
 function Header() {
   const [name, setName] = useState('');
   const { data, setDataCopy } = useContext(TableContext);
-  const { filterByNumericValues } = useContext(FilterNumericContext);
-
-  const handleInputSearch = ({ target }) => {
-    // console.log('inputSerach');
-    setName(target.value.toUpperCase());
-  };
-
-  /*  useEffect(() => {
-    const filterPlanets = data.filter((eachPlanets) => eachPlanets.name
-      .toUpperCase()
-      .includes(name));
-    setDataCopy(filterPlanets);
-  }, [name, setDataCopy, data]); */
+  const { filterByNumericValues, order } = useContext(FilterNumericContext);
 
   useEffect(() => {
     const filterPlanets = data.filter((eachPlanets) => eachPlanets.name
@@ -43,7 +31,7 @@ function Header() {
         }), filterPlanets);
 
     setDataCopy(resultNumericValues);
-  }, [name, setDataCopy, data, filterByNumericValues]);
+  }, [name, setDataCopy, data, filterByNumericValues, order]);
 
   return (
     <div>
@@ -52,7 +40,7 @@ function Header() {
         Busque por um planeta especifico
         <input
           value={ name }
-          onChange={ handleInputSearch }
+          onChange={ ({ target }) => setName(target.value.toUpperCase()) }
           id="inputSearch"
           type="text"
           placeholder="Digite um planeta"
