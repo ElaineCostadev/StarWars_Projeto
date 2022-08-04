@@ -3,8 +3,8 @@
   border: 6px solid #1b1b1b;
   border-collapse: collapse;
   font-family: Comic Sans MS , cursive , sans-serif;
-  text-align: center;
   margin: 20px;
+  text-align: center;
 }
 
 .table-container td, .table-container th {
