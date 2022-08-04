@@ -1,62 +1,62 @@
-table.table-container {
+.table-container {
   background-color: #423416;
+  border: 6px solid #1b1b1b;
   border-collapse: collapse;
-  border: 6px solid #1B1B1B;
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  height: 0;
+  font-family: Comic Sans MS , cursive , sans-serif;
   text-align: center;
-  width: 0;
+  margin: 20px;
 }
 
-table.table-container td, table.table-container th {
-  border: 1px solid #B4B4B4;
+.table-container td, .table-container th {
+  border: 1px solid #b4b4b4;
   padding: 7px 5px;
 }
-table.table-container tbody td {
-  color: #CECECE;
+
+.table-container tbody td {
+  color: #cecece;
   font-size: 15px;
 }
 
-table.table-container tr:nth-child(even) {
-  background: #423416;
-}
-
-table.table-container td:nth-child(even) {
-  background: #7B6129;
-}
-
-table.table-container thead {
-  background: #BC8405;
-  background: -moz-linear-gradient(top, #cda343 0%, #c2901e 66%, #BC8405 100%);
-  background: -webkit-linear-gradient(top, #cda343 0%, #c2901e 66%, #BC8405 100%);
-  background: linear-gradient(to bottom, #cda343 0%, #c2901e 66%, #BC8405 100%);
-  border-bottom: 0px solid #131313;
-}
-
-table.table-container thead th {
-  border-left: 2px solid #CECECE;
-  color: #423416;
-  font-size: 18px;
-  font-weight: bold;
-  text-align: center;
-}
-
-table.table-container thead th:first-child {
-  border-left: none;
-}
-  
-table.table-container tfoot td {
+.table-container tfoot td {
   font-size: 8px;
 }
 
-table.table-container tfoot .links {
+.table-container tr:nth-child( even ) {
+  background: #423416;
+}
+
+.table-container td:nth-child( even ) {
+  background: #7b6129;
+}
+
+.table-container thead {
+  background: #bc8405;
+
+  /* background: -moz-linear-gradient(top, #cda343 0%, #c2901e 66%, #bc8405 100%);
+  background: -webkit-linear-gradient(top, #cda343 0%, #c2901e 66%, #bc8405 100%);
+  background: linear-gradient(to bottom, #cda343 0%, #c2901e 66%, #bc8405 100%); */
+  border-bottom: 0.1px solid #131313;
+}
+
+.table-container thead th {
+  border-left: 2px solid #cecece;
+  color: #423416;
+  font-size: 18px;
+  text-align: center;
+}
+
+.table-container thead th:first-child {
+  border-left: none;
+}
+
+.table-container tfoot .links {
   text-align: right;
 }
 
-table.table-container tfoot .links a{
-  background: #1C6EA4;
+.table-container tfoot .links a {
+  background: #1c6ea4;
   border-radius: 5px;
-  color: #FFFFFF;
+  color: white;
   display: inline-block;
   padding: 2px 8px;
 }
