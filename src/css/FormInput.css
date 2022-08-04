@@ -1,0 +1,124 @@
+.form-input {
+  align-items: center;
+  color: #fed34f !important;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  text-align: justify;
+  transform: perspective(700px) rotateX(25deg);
+}
+
+.form-input input {
+  background:#282c34;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px yellow;
+  margin-left: 15px;
+  width: 200px;
+}
+
+.form-input input:hover {
+  background:black;
+  border-radius: 5px;
+  width: 200px;
+}
+
+.form-input input:focus {
+  outline: none;
+}
+
+.form-input select {
+  background:#282c34;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px yellow;
+  font-size: 20px;
+  margin-left: 15px;
+  margin-right: 10px;
+  padding: 10px;
+  text-align: center;
+  width: 200px;
+}
+
+.form-input select:hover {
+  background:black;
+  border-radius: 5px;
+  width: 200px;
+}
+
+.form-input select:focus {
+  outline: none;
+}
+
+.form-input [type=number] {
+  padding: 5px;
+  text-align: center;
+  width: 2cm;
+}
+
+.form-input [type=number]:hover {
+  width: 2cm;
+}
+
+.form-input button {
+  background-color: #694D10;
+  border-radius: 10px;
+  border: 1px solid #DD9900;
+  margin-left: 15px;
+  margin-right: 10px;
+  padding: 7px;
+}
+
+.form-input button:hover {
+  background-color: #1B1B1B;
+  border: 1px solid black;
+  color: white;
+  cursor: pointer;
+}
+
+.form-input button:nth-child(2){
+  background: transparent;
+  border-radius: 2em;
+  border: 2px solid #f00;
+  color: #f00;
+  display: inline-block;
+  font-size: 12px;
+  height: 20px;
+  line-height: 2px;
+  margin: 0 0 8px;
+  padding: 0;
+  text-align: center;
+  width: 20px;
+}
+
+.form-input button:nth-child(6-10){
+  border: 3px solid #f00;
+  margin: -3cm 1cm 1cm 27cm;
+  position: fixed;
+}
+
+.form2-order {
+  margin-top: 1cm;
+}
+
+.form2-order input {
+  margin-left: 5px;
+  margin-right: 25px;
+  width: 15px;
+}
+
+.form2-order input:hover {
+  width: 15px;
+}
+
+.form2-order button {
+  background-color: #694D10;
+  border-radius: 10px;
+  border: 1px solid #DD9900;
+  padding: 7px;
+}
+
+.form2-order button:hover {
+  background-color: #1B1B1B;
+  border: 1px solid black;
+  color: white;
+  cursor: pointer;
+}

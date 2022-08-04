@@ -1,0 +1,9 @@
+.img-star {
+  display: flex;
+  justify-content:flex-start;
+}
+
+.img-star img {
+  width: 100%;
+  margin-top: -3cm;
+}

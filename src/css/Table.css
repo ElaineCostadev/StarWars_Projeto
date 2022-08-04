@@ -1,0 +1,62 @@
+table.table-container {
+  background-color: #423416;
+  border-collapse: collapse;
+  border: 6px solid #1B1B1B;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  height: 0;
+  text-align: center;
+  width: 0;
+}
+
+table.table-container td, table.table-container th {
+  border: 1px solid #B4B4B4;
+  padding: 7px 5px;
+}
+table.table-container tbody td {
+  color: #CECECE;
+  font-size: 15px;
+}
+
+table.table-container tr:nth-child(even) {
+  background: #423416;
+}
+
+table.table-container td:nth-child(even) {
+  background: #7B6129;
+}
+
+table.table-container thead {
+  background: #BC8405;
+  background: -moz-linear-gradient(top, #cda343 0%, #c2901e 66%, #BC8405 100%);
+  background: -webkit-linear-gradient(top, #cda343 0%, #c2901e 66%, #BC8405 100%);
+  background: linear-gradient(to bottom, #cda343 0%, #c2901e 66%, #BC8405 100%);
+  border-bottom: 0px solid #131313;
+}
+
+table.table-container thead th {
+  border-left: 2px solid #CECECE;
+  color: #423416;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+table.table-container thead th:first-child {
+  border-left: none;
+}
+  
+table.table-container tfoot td {
+  font-size: 8px;
+}
+
+table.table-container tfoot .links {
+  text-align: right;
+}
+
+table.table-container tfoot .links a{
+  background: #1C6EA4;
+  border-radius: 5px;
+  color: #FFFFFF;
+  display: inline-block;
+  padding: 2px 8px;
+}

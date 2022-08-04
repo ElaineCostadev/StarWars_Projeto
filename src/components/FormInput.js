@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import FilterNumericContext from '../context/FilterNumericContext';
 import TableContext from '../context/TableContext';
+import '../css/FormInput.css';
 
 // mentoria com o Douglas para fazer esse array de options
 const arryOptions = ['population', 'orbital_period',
@@ -15,7 +16,7 @@ function FormInput() {
     columnSort, setColumnSort,
     sort, setSort } = useContext(FilterNumericContext);
 
-  const { dataCopy, setDataCopy } = useContext(TableContext);
+  const { dataCopy, setDataCopy, logoStars } = useContext(TableContext);
 
   const handleInputs = () => {
     // console.log(options);
@@ -76,143 +77,163 @@ function FormInput() {
     setDataCopy(newDataCopy);
   };
 
+  function optionMap() {
+    return options.map((eachOption) => (
+      <option
+        key={ eachOption }
+      >
+        {eachOption}
+      </option>
+    ));
+  }
+
   return (
     <nav>
-      <form>
-        <label
-          htmlFor="column-filter"
-        >
-          Filtrar pela coluna
-          <select
-            data-testid="column-filter"
-            id="column-filter"
-            name="column-filter"
-            value={ column }
-            onChange={ ({ target }) => setColumn(target.value) }
-          >
-            { options.map((eachOption) => (
-              <option
-                key={ eachOption }
+      { !logoStars && (
+        <div className="form-input">
+          <form>
+            <label
+              htmlFor="column-filter"
+            >
+              Filtrar pela coluna
+              <select
+                data-testid="column-filter"
+                id="column-filter"
+                name="column-filter"
+                value={ column }
+                onChange={ ({ target }) => setColumn(target.value) }
               >
-                {eachOption}
-              </option>
-            ))}
-          </select>
-        </label>
+                { optionMap() }
+                {/* { options.map((eachOption) => (
+                  <option
+                    key={ eachOption }
+                  >
+                    {eachOption}
+                  </option>
+                ))} */}
+              </select>
+            </label>
 
-        <label
-          htmlFor="comparison"
-        >
-          Operador
-          <select
-            data-testid="comparison-filter"
-            name="comparison"
-            id="comparison"
-            value={ comparison }
-            onChange={ ({ target }) => setComparison(target.value) }
-          >
-            <option>maior que</option>
-            <option>menor que</option>
-            <option>igual a</option>
-          </select>
-        </label>
+            <label
+              htmlFor="comparison"
+            >
+              Operador
+              <select
+                data-testid="comparison-filter"
+                name="comparison"
+                id="comparison"
+                value={ comparison }
+                onChange={ ({ target }) => setComparison(target.value) }
+              >
+                <option>maior que</option>
+                <option>menor que</option>
+                <option>igual a</option>
+              </select>
+            </label>
 
-        <label
-          htmlFor="value-filter"
-        >
-          Filtro Valor
-          <input
-            id="value-filter"
-            type="number"
-            name="value-filter"
-            value={ value }
-            data-testid="value-filter"
-            onChange={ ({ target }) => setValue(target.value) }
-          />
-        </label>
+            <label
+              htmlFor="value-filter"
+            >
+              Filtro Valor
+              <input
+                id="value-filter"
+                type="number"
+                name="value-filter"
+                value={ value }
+                data-testid="value-filter"
+                onChange={ ({ target }) => setValue(target.value) }
+              />
+            </label>
 
-        <button
-          type="button"
-          onClick={ handleInputs }
-          data-testid="button-filter"
-        >
-          Filtrar
-        </button>
-
-      </form>
-      {
-        filterByNumericValues.map((eachFilter, index) => (
-          <div key={ `${eachFilter.column}-${index}` } data-testid="filter">
-            <h5>
-              {` ${eachFilter.column} ${eachFilter.comparison}  ${eachFilter.value} `}
-            </h5>
             <button
               type="button"
-              onClick={ () => deleteColumns(eachFilter.column) }
+              onClick={ handleInputs }
+              data-testid="button-filter"
             >
-              Delete
+              Filtrar
             </button>
 
-          </div>
-        ))
-      }
-      <button
-        type="button"
-        onClick={ deleteAllFilters }
-        data-testid="button-remove-filters"
-      >
-        Remover filtros
-      </button>
+            {
+              filterByNumericValues.map((eachFilter, index) => (
+                <div key={ `${eachFilter.column}-${index}` } data-testid="filter">
+                  <h5>
+                    {` ${eachFilter.column}${eachFilter.comparison}${eachFilter.value} `}
+                  </h5>
+                  <button
+                    className="button-delete"
+                    type="button"
+                    onClick={ () => deleteColumns(eachFilter.column) }
+                  >
+                    X
+                  </button>
 
-      <label htmlFor="column-sort">
-        Ordenar
-        <select
-          data-testid="column-sort"
-          id="column-sort"
-          name="column-sort"
-          value={ columnSort }
-          onChange={ ({ target }) => setColumnSort(target.value) }
-        >
-          { options.map((eachOption) => (
-            <option
-              key={ eachOption }
+                </div>
+              ))
+            }
+            <button
+              type="button"
+              onClick={ deleteAllFilters }
+              data-testid="button-remove-filters"
             >
-              {eachOption}
-            </option>
-          ))}
-        </select>
-      </label>
+              Remover filtros
+            </button>
+          </form>
 
-      <label htmlFor="input-asc">
-        Ascendente
-        <input
-          name="input-radio"
-          type="radio"
-          id="input-asc"
-          data-testid="column-sort-input-asc"
-          value="ASC"
-          onChange={ ({ target }) => setSort(target.value) }
-        />
-      </label>
-      <label htmlFor="input-desc">
-        Descendente
-        <input
-          name="input-radio"
-          type="radio"
-          id="input-desc"
-          data-testid="column-sort-input-desc"
-          value="DESC"
-          onChange={ ({ target }) => setSort(target.value) }
-        />
-      </label>
-      <button
-        type="button"
-        data-testid="column-sort-button"
-        onClick={ handleOrder }
-      >
-        Ordenar
-      </button>
+          <form className="form2-order">
 
+            <label htmlFor="column-sort">
+              Ordenar
+              <select
+                data-testid="column-sort"
+                id="column-sort"
+                name="column-sort"
+                value={ columnSort }
+                onChange={ ({ target }) => setColumnSort(target.value) }
+              >
+                { optionMap() }
+                {/* { options.map((eachOption) => (
+                  <option
+                    key={ eachOption }
+                  >
+                    {eachOption}
+                  </option>
+                ))} */}
+              </select>
+            </label>
+
+            <label htmlFor="input-asc">
+              Ascendente
+              <input
+                name="input-radio"
+                type="radio"
+                id="input-asc"
+                data-testid="column-sort-input-asc"
+                value="ASC"
+                onChange={ ({ target }) => setSort(target.value) }
+              />
+            </label>
+            <label htmlFor="input-desc">
+              Descendente
+              <input
+                name="input-radio"
+                type="radio"
+                id="input-desc"
+                data-testid="column-sort-input-desc"
+                value="DESC"
+                onChange={ ({ target }) => setSort(target.value) }
+              />
+            </label>
+            <button
+              type="button"
+              data-testid="column-sort-button"
+              onClick={ handleOrder }
+            >
+              Ordenar
+            </button>
+
+          </form>
+        </div>
+      )}
     </nav>
   );
 }

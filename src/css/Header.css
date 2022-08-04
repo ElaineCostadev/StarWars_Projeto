@@ -1,0 +1,31 @@
+.header-div {
+  align-items: center;
+  color: #fed34f !important;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  text-align: justify;
+  transform: perspective(300px) rotateX(35deg);
+}
+
+.header-div h1 {
+  font-size: 40px;
+}
+
+.header-div input {
+  background:#282c34;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px yellow;
+  margin-left: 15px;
+  width: 200px;
+}
+
+.header-div input:hover {
+  background:black;
+  border-radius: 5px;
+  width: 200px;
+}
+
+.header-div input:focus {
+  outline: none;
+}
