@@ -1,5 +1,3 @@
-# 🚧 README em construção 🚧
-
 <h1 align="center">StarWars Planets</h1>
 
 <p align="center">
@@ -17,7 +15,7 @@
 </h1>
 
 ### Sobre
-Esse projeto foi desenvolvido para treinar as ferramentas aprendidas no modulo de Front-End na Trybe 
+Esse projeto foi desenvolvido para treinar as ferramentas aprendidas no modulo de Front-End na Trybe. <br>
 Atraves do consumo de uma API de planetas do StarWars, é retornado uma lista e feito diversos filtros dos planetas.
 
 Os arquivos dentro da pasta src sobre a aplicação foram elaborados por mim.
@@ -36,8 +34,12 @@ As seguintes ferramentas foram usadas na construção do projeto:
 ### Features
 
 - [x] Consumo da API de planetas do StarWars
-- [x] Botão para recarregar os dados
-- [x] Busca por cidades
+- [x] Botão para buscar os planetas pelo nome
+- [x] Botão para filtrar os planetas pela coluna desejada
+- [x] Botão para comparar os valores maior que, menor que e igual a
+- [x] Botão para inserir o valor desejado
+- [x] Botão para remover todos os filtros
+- [x] Botão para ordenar os planetas de forma ascendente ou descendente conforme a coluna desejada.
 
 
 ### Pre-Requisitos
