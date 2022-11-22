@@ -1,5 +1,6 @@
 <h1 align="center">StarWars Planets</h1>
 
+
 <p align="center">
   <a href="#sobre">Sobre</a> • 
   <a href="#tecnologias">Tecnologias</a> • 
@@ -15,8 +16,10 @@
 </h1>
 
 ### Sobre
-Esse projeto foi desenvolvido para treinar as ferramentas aprendidas no modulo de Front-End na Trybe. <br>
+Esse projeto foi desenvolvido para treinar as ferramentas aprendidas no modulo de Front-End na Trybe.
 Atraves do consumo de uma API de planetas do StarWars, é retornado uma lista e feito diversos filtros dos planetas.
+
+[Acesse o site](https://starwarsplanetsproject.netlify.app)
 
 Os arquivos dentro da pasta src sobre a aplicação foram elaborados por mim.
 Os arquivos iniciais, eslint e testes foram feitos pela Trybe como avaliação.
