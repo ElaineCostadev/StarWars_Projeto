@@ -1,16 +1,69 @@
 # 🚧 README em construção 🚧
 
-<!-- Olá, Tryber!
+<h1 align="center">StarWars Planets</h1>
 
-Esse é apenas um arquivo inicial para o README do seu projeto.
+<p align="center">
+  <a href="#sobre">Sobre</a> • 
+  <a href="#tecnologias">Tecnologias</a> • 
+  <a href="#features">Features</a> • 
+  <a href="#pre-requisitos">Pre-Requisitos</a> • 
+  <a href="#como-rodar">Como rodar</a> • 
+  <a href="#autor">Autor</a>
+ 
+</p>
 
-É essencial que você preencha esse documento por conta própria, ok?
+<h1 align="center">
+  <img alt="StarWars Gif" title="StarWarsGif" src="./StarWars.gif" />
+</h1>
 
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
+### Sobre
+Esse projeto foi desenvolvido para treinar as ferramentas aprendidas no modulo de Front-End na Trybe 
+Atraves do consumo de uma API de planetas do StarWars, é retornado uma lista e feito diversos filtros dos planetas.
 
-⚠️ IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
+Os arquivos dentro da pasta src sobre a aplicação foram elaborados por mim.
+Os arquivos iniciais, eslint e testes foram feitos pela Trybe como avaliação.
 
--->
+### Tecnologias
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- React
+- HOF's
+- Context API
+- Hooks
+- Controle de estados globais
+
+
+### Features
+
+- [x] Consumo da API de planetas do StarWars
+- [x] Botão para recarregar os dados
+- [x] Busca por cidades
+
+
+### Pre-Requisitos
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com).
+
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
+
+
+### Como rodar
+
+```bash
+# Clone este repositório
+$ git clone git@github.com:ElaineCostadev/StarWars_Projeto.git
+
+# Acesse a pasta do projeto no terminal/cmd
+$ cd StarWars_Projeto
+
+# Instale as dependências
+$ npm install
+
+# Para visualizar a pagina
+$ npm start
+```
+
+#### Autor
+
+Made with 🧡 by ELAINE COSTA ✨
