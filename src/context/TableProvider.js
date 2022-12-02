@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import TableContext from './TableContext';
 
-const URL = 'https://swapi-trybe.herokuapp.com/api/planets/';
+// const URL = 'https://swapi-trybe.herokuapp.com/api/planets/';
+const URL = 'https://swapi.py4e.com/api/planets/';
 // const FIVE_SECONDS = 5000;
 
 function TableProvider({ children }) {
