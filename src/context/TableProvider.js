@@ -6,7 +6,7 @@ const URL = 'https://swapi-trybe.herokuapp.com/api/planets/';
 const FIVE_SECONDS = 5000;
 
 function TableProvider({ children }) {
-  const [logoStars, setLogoStars] = useState(true);
+  // const [logoStars, setLogoStars] = useState(true);
   const [data, setData] = useState([]);
   const [dataCopy, setDataCopy] = useState([]);
 
@@ -29,7 +29,7 @@ function TableProvider({ children }) {
           }
           return 0;
         });
-        setTimeout(() => setLogoStars(false), FIVE_SECONDS);
+        // setTimeout(() => setLogoStars(false), FIVE_SECONDS);
         setData(orderDataPlanets);
         setDataCopy(orderDataPlanets);
         // setLogoStars(false);
