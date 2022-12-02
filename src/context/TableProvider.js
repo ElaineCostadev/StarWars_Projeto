@@ -6,14 +6,14 @@ const URL = 'https://swapi-trybe.herokuapp.com/api/planets/';
 const FIVE_SECONDS = 5000;
 
 function TableProvider({ children }) {
-  const [logoStars, setLogoStars] = useState(false);
+  const [logoStars, setLogoStars] = useState(true);
   const [data, setData] = useState([]);
   const [dataCopy, setDataCopy] = useState([]);
 
   useEffect(() => {
     const fetchPlanets = async () => {
       try {
-        setLogoStars(true);
+        // setLogoStars(true);
         const response = await fetch(URL);
         const dataPlanets = await response.json();
         const one = 1;
