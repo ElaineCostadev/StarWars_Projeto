@@ -19,7 +19,7 @@
 Esse projeto foi desenvolvido para treinar as ferramentas aprendidas no modulo de Front-End na Trybe.
 Atraves do consumo de uma API de planetas do StarWars, é retornado uma lista e feito diversos filtros dos planetas.
 
-[Acesse o site](https://starwarsplanetsproject.netlify.app)
+[Acesse o site](https://starwarsplanetsprojeto.netlify.app)
 
 Os arquivos dentro da pasta src sobre a aplicação foram elaborados por mim.
 Os arquivos iniciais, eslint e testes foram feitos pela Trybe como avaliação.
