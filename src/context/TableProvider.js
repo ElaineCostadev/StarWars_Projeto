@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import TableContext from './TableContext';
 
 const URL = 'https://swapi-trybe.herokuapp.com/api/planets/';
-const FIVE_SECONDS = 5000;
+// const FIVE_SECONDS = 5000;
 
 function TableProvider({ children }) {
   // const [logoStars, setLogoStars] = useState(true);
